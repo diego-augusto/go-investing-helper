@@ -29,6 +29,7 @@ func main() {
 	err = writer.Write(csvHeader)
 	checkError("Couldn't write to file", err)
 	sumToInvest := 0.0
+	priceToInvest := 0.0
 	reader := csv.NewReader(csvfile)
 	for {
 		record, err := reader.Read()
@@ -43,6 +44,10 @@ func main() {
 		checkError("Couldn't parse weight value", err)
 		fPrice, err := strconv.ParseFloat(price, 64)
 		checkError("Couldn't parse price value", err)
+		currentMaxPriceToInvest := fPrice * 100.00 / fWeight
+		if currentMaxPriceToInvest > priceToInvest {
+			priceToInvest = currentMaxPriceToInvest
+		}
 		quantity := int(total * fWeight / 100.00 / fPrice)
 		total := fPrice * float64(quantity)
 		resultLine := []string{
@@ -56,7 +61,7 @@ func main() {
 		checkError("Cannot write to file", err)
 		sumToInvest = sumToInvest + total
 	}
-	csvFooter := []string{"-", "-", "-", "-", fmt.Sprintf("%.2f", sumToInvest)}
+	csvFooter := []string{"-", "-", "-", fmt.Sprintf("%.2f", sumToInvest), fmt.Sprintf("%.2f", priceToInvest)}
 	err = writer.Write(csvFooter)
 	checkError("Couldn't write to file", err)
 }
