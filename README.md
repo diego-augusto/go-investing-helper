@@ -4,11 +4,11 @@ This program help us to calc weight for stock on stock exchange.
 
 Call:
 ```sh
-run main.go [price] [file]
+run main.go [price] [input file path] [output file path]
 ```
 Example:
 ```sh
-run main.go 2000.00 input.csv
+run main.go 2000.00 input.csv output.csv
 ```
 
 The input.csv file example:
@@ -25,7 +25,7 @@ VVAR3,10
 WEGE3,10
 ```
 
-The result.csv file example:
+The output.csv file example:
 ```
 stock,weight,value,quantity,total
 B3SA3,12,62.34,3,187.02
