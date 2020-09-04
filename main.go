@@ -19,7 +19,7 @@ func main() {
 	checkError("Couldn't open the csv file", err)
 	defer csvfile.Close()
 	total, err := strconv.ParseFloat(os.Args[1], 64)
-	checkError("Couldn't parse the arguent value", err)
+	checkError("Couldn't parse the argument value", err)
 	file, err := os.Create("result.csv")
 	checkError("Couldn't  create file", err)
 	defer file.Close()
