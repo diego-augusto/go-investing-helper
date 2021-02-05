@@ -4,7 +4,7 @@ This program help us to calc weight for stock on stock exchange.
 
 Call:
 ```sh
-run main.go [price] [input file path] [output file path]
+go run main.go [price] [input file path] [output file path]
 ```
 Example:
 ```sh
