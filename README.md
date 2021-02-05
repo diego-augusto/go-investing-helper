@@ -8,7 +8,7 @@ run main.go [price] [input file path] [output file path]
 ```
 Example:
 ```sh
-run main.go 2000.00 input.csv output.csv
+go run main.go 2000.00 input.csv output.csv
 ```
 
 The input.csv file example:
